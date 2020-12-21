@@ -18,6 +18,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,6 +31,17 @@ public:
     QPushButton *pushButton;
     QLabel *label;
     QGraphicsView *graphicsView;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *label_2;
+    QLineEdit *minRadeEdit;
+    QLabel *label_3;
+    QLineEdit *maxRadEdit;
+    QLabel *label_4;
+    QLineEdit *meanEdit;
+    QLabel *label_5;
+    QLineEdit *thresEdit;
+    QPushButton *setVarBtn;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -37,7 +49,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(952, 594);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         videoPath = new QLineEdit(centralwidget);
@@ -53,10 +65,61 @@ public:
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(30, 10, 741, 501));
         graphicsView->setFrameShape(QFrame::VLine);
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(780, 10, 160, 291));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(verticalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        verticalLayout_2->addWidget(label_2);
+
+        minRadeEdit = new QLineEdit(verticalLayoutWidget);
+        minRadeEdit->setObjectName(QString::fromUtf8("minRadeEdit"));
+
+        verticalLayout_2->addWidget(minRadeEdit);
+
+        label_3 = new QLabel(verticalLayoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout_2->addWidget(label_3);
+
+        maxRadEdit = new QLineEdit(verticalLayoutWidget);
+        maxRadEdit->setObjectName(QString::fromUtf8("maxRadEdit"));
+
+        verticalLayout_2->addWidget(maxRadEdit);
+
+        label_4 = new QLabel(verticalLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        verticalLayout_2->addWidget(label_4);
+
+        meanEdit = new QLineEdit(verticalLayoutWidget);
+        meanEdit->setObjectName(QString::fromUtf8("meanEdit"));
+
+        verticalLayout_2->addWidget(meanEdit);
+
+        label_5 = new QLabel(verticalLayoutWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        verticalLayout_2->addWidget(label_5);
+
+        thresEdit = new QLineEdit(verticalLayoutWidget);
+        thresEdit->setObjectName(QString::fromUtf8("thresEdit"));
+
+        verticalLayout_2->addWidget(thresEdit);
+
+        setVarBtn = new QPushButton(verticalLayoutWidget);
+        setVarBtn->setObjectName(QString::fromUtf8("setVarBtn"));
+
+        verticalLayout_2->addWidget(setVarBtn);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 23));
+        menubar->setGeometry(QRect(0, 0, 952, 23));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -72,6 +135,11 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Start", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Video Path", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Min Radius", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Max Radius", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Mean", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Threshold Center", nullptr));
+        setVarBtn->setText(QCoreApplication::translate("MainWindow", "Set Variable", nullptr));
     } // retranslateUi
 
 };

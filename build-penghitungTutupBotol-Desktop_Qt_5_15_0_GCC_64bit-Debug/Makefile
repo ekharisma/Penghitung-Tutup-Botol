@@ -868,6 +868,19 @@ moc_mainwindow.cpp: ../penghitungTutupBotol/mainwindow.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpen.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QImage \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QPixmap \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QCloseEvent \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
 		moc_predefs.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/bin/moc
 	/home/kayugasan/Qt/5.15.0/gcc_64/bin/moc $(DEFINES) --include '/home/kayugasan/Desktop/Kuliah/Workshop Komputer Visi/Tugas/Week 15/penghitungTutupBotolC++/build-penghitungTutupBotol-Desktop_Qt_5_15_0_GCC_64bit-Debug/moc_predefs.h' -I/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/linux-g++ -I'/home/kayugasan/Desktop/Kuliah/Workshop Komputer Visi/Tugas/Week 15/penghitungTutupBotolC++/penghitungTutupBotol' -I/usr/local/include/opencv4 -I/home/kayugasan/Qt/5.15.0/gcc_64/include -I/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets -I/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui -I/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore -I. -I/usr/include/c++/10 -I/usr/include/c++/10/x86_64-suse-linux -I/usr/include/c++/10/backward -I/usr/lib64/gcc/x86_64-suse-linux/10/include -I/usr/local/include -I/usr/lib64/gcc/x86_64-suse-linux/10/include-fixed -I/usr/x86_64-suse-linux/include -I/usr/include ../penghitungTutupBotol/mainwindow.h -o moc_mainwindow.cpp
@@ -1000,6 +1013,19 @@ main.o: ../penghitungTutupBotol/main.cpp ../penghitungTutupBotol/mainwindow.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpen.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QImage \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QPixmap \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QCloseEvent \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1116,6 +1142,19 @@ mainwindow.o: ../penghitungTutupBotol/mainwindow.cpp ../penghitungTutupBotol/mai
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsScene \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpen.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QImage \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QPixmap \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/QCloseEvent \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QMessageBox \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
 		ui_mainwindow.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QVariant \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
@@ -1125,11 +1164,27 @@ mainwindow.o: ../penghitungTutupBotol/mainwindow.cpp ../penghitungTutupBotol/mai
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsView \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsview.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpainter.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextoption.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qscrollarea.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QLineEdit \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextcursor.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextformat.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QWidget

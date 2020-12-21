@@ -23,5 +23,6 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+#ini tempat buat import openCV, sesuaikan aja
 unix: CONFIG += link_pkgconfig
 unix: PKGCONFIG += opencv4

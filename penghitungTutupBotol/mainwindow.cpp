@@ -62,17 +62,33 @@ void MainWindow::on_pushButton_clicked(){
     cv::Mat frame;
     while (video.isOpened()) {
         video >> frame;
+        double fps = video.get(cv::CAP_PROP_FPS);
+        qDebug() << fps;
         if (! frame.empty()){
+            cv::cvtColor(frame, frame, cv::COLOR_BGR2GRAY);
             QImage img(
                         frame.data,
                         frame.cols,
                         frame.rows,
                         frame.step,
-                        QImage::Format_RGB888);
+                        QImage::Format_Grayscale8);
             pixmap.setPixmap(QPixmap::fromImage(img.rgbSwapped()));
             ui->graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
         }
         qApp->processEvents();
     }
     ui->pushButton->setText("Start");
+}
+
+
+void MainWindow::on_setVarBtn_clicked()
+{
+    minRad = ui->minRadeEdit->text().toUInt();
+    maxRad = ui->maxRadEdit->text().toUInt();
+    mean = ui->meanEdit->text().toUInt();
+    threshold = ui->thresEdit->text().toUInt();
+    qDebug() << "Min radius value : " << minRad;
+    qDebug() << "Max radius value : " << maxRad;
+    qDebug() << "Mean value : " << mean;
+    qDebug() << "Theshold value : " << threshold;
 }
