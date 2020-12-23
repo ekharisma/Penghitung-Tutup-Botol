@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "unistd.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,12 +9,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->graphicsView->setScene(new QGraphicsScene(this));
     ui->graphicsView->scene()->addItem(&pixmap);
+    ui->minRadEdit->setText(QString::number(minRad));
+    ui->MaxRadEdit->setText(QString::number(maxRad));
+    ui->thresEdit->setText(QString::number(threshold));
+    ui->MeanEdit->setText(QString::number(blur_coef));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 
 void MainWindow::closeEvent(QCloseEvent* event){
     if(video.isOpened()){
@@ -59,19 +65,35 @@ void MainWindow::on_pushButton_clicked(){
         }
     }
     ui->pushButton->setText("Stop");
-    cv::Mat frame;
+    cv::Mat frame, gray;
     while (video.isOpened()) {
         video >> frame;
-        double fps = video.get(cv::CAP_PROP_FPS);
-        qDebug() << fps;
         if (! frame.empty()){
-            cv::cvtColor(frame, frame, cv::COLOR_BGR2GRAY);
+            unsigned int microsecond = 10000;
+            usleep(0.5 * microsecond);//sleeps for 3 second
+            cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+            cv::medianBlur(gray, gray, blur_coef);
+            std::vector<cv::Vec3f> circles;
+            cv::HoughCircles(gray, circles, cv::HOUGH_GRADIENT,1, gray.rows/16, threshold, 30, minRad, maxRad);
+            size_t i;
+            for(i=0;i<circles.size();i++){
+                cv::Vec3i c = circles[i];
+                cv::Point center = cv::Point(c[0], c[1]);
+                cv::circle(frame, center,1, cv::Scalar(0, 100, 100), 2, cv::LINE_AA);
+                int radius = c[2];
+                cv::circle(frame, center,radius, cv::Scalar(0, 255, 0), 2, cv::LINE_AA);
+            }
+            char buff[256];
+            std::sprintf(buff, "%d", i);
+            QString s = buff;
+            qDebug() << "Tutup botol : " << i;
+            ui->label_7->setText(s);
             QImage img(
                         frame.data,
                         frame.cols,
                         frame.rows,
                         frame.step,
-                        QImage::Format_Grayscale8);
+                        QImage::Format_BGR888);
             pixmap.setPixmap(QPixmap::fromImage(img.rgbSwapped()));
             ui->graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
         }
@@ -83,12 +105,8 @@ void MainWindow::on_pushButton_clicked(){
 
 void MainWindow::on_setVarBtn_clicked()
 {
-    minRad = ui->minRadeEdit->text().toUInt();
-    maxRad = ui->maxRadEdit->text().toUInt();
-    mean = ui->meanEdit->text().toUInt();
     threshold = ui->thresEdit->text().toUInt();
-    qDebug() << "Min radius value : " << minRad;
-    qDebug() << "Max radius value : " << maxRad;
-    qDebug() << "Mean value : " << mean;
-    qDebug() << "Theshold value : " << threshold;
+    minRad = ui->minRadEdit->text().toInt();
+    maxRad = ui->MaxRadEdit->text().toInt();
+    blur_coef = ui->MeanEdit->text().toInt();
 }

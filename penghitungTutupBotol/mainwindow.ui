@@ -67,21 +67,21 @@
     <property name="geometry">
      <rect>
       <x>780</x>
-      <y>10</y>
+      <y>19</y>
       <width>160</width>
       <height>291</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Min Radius</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="minRadeEdit"/>
+      <widget class="QLineEdit" name="minRadEdit"/>
      </item>
      <item>
       <widget class="QLabel" name="label_3">
@@ -91,17 +91,17 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="maxRadEdit"/>
+      <widget class="QLineEdit" name="MaxRadEdit"/>
      </item>
      <item>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Mean</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="meanEdit"/>
+      <widget class="QLineEdit" name="MeanEdit"/>
      </item>
      <item>
       <widget class="QLabel" name="label_5">
@@ -121,6 +121,48 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="formLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>100</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout"/>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>340</y>
+      <width>101</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Jumlah Botol</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>380</y>
+      <width>131</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
