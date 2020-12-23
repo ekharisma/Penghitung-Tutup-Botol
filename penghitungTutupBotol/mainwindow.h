@@ -5,6 +5,8 @@
 #include <opencv4/opencv2/core.hpp>
 #include <opencv4/opencv2/videoio.hpp>
 #include <opencv4/opencv2/imgproc.hpp>
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/highgui.hpp"
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 #include <QImage>
@@ -25,6 +27,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void cvt_params();
 protected:
     void closeEvent(QCloseEvent *event);
 private slots:
@@ -38,9 +41,9 @@ private:
     QGraphicsPixmapItem pixmap;
     cv::VideoCapture video;
     bool isCamera;
-    int minRad = 0;
-    int maxRad = 0;
-    int mean = 0;
-    int threshold = 0;
+    int threshold = 200;
+    int minRad = 1;
+    int maxRad = 30;
+    int blur_coef = 5;
 };
 #endif // MAINWINDOW_H
