@@ -247,6 +247,7 @@ DIST          = /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
+		../penghitungTutupBotol/.qmake.stash \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -471,6 +472,7 @@ Makefile: ../penghitungTutupBotol/penghitungTutupBotol.pro /home/kayugasan/Qt/5.
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -684,6 +686,7 @@ Makefile: ../penghitungTutupBotol/penghitungTutupBotol.pro /home/kayugasan/Qt/5.
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf:
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf:
 /home/kayugasan/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -1152,7 +1155,48 @@ mainwindow.o: ../penghitungTutupBotol/mainwindow.cpp ../penghitungTutupBotol/mai
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdialog.h \
 		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QFormLayout \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qformlayout.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QLayout \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QGraphicsView \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qgraphicsview.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qpainter.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextoption.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qscrollarea.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QLabel \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QLineEdit \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextcursor.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtGui/qtextformat.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/kayugasan/Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
+		../penghitungTutupBotol/objdetection.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../penghitungTutupBotol/mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
