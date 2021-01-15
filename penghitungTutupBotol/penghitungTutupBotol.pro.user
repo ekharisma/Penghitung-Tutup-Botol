@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2021-01-14T16:43:52. -->
+<!-- Written by QtCreator 4.13.2, 2021-01-15T08:13:34. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -387,7 +387,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/kayugasan/Desktop/Kuliah/Workshop Komputer Visi/Tugas/Week 15/penghitungTutupBotolC++/build-penghitungTutupBotol-Desktop_Qt_5_15_0_GCC_64bit-Release</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

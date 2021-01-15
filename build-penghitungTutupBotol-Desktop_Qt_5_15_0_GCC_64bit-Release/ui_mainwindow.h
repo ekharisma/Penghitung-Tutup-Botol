@@ -30,8 +30,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QLineEdit *videoPath;
-    QLabel *label;
     QGraphicsView *graphicsView;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout_2;
@@ -70,6 +68,11 @@ public:
     QLineEdit *minRed;
     QLineEdit *maxWhite;
     QPushButton *setVarBtn;
+    QPushButton *pushButton;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label;
+    QLineEdit *videoPath;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -80,12 +83,6 @@ public:
         MainWindow->resize(952, 484);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        videoPath = new QLineEdit(centralwidget);
-        videoPath->setObjectName(QString::fromUtf8("videoPath"));
-        videoPath->setGeometry(QRect(110, 410, 261, 26));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 400, 81, 41));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(30, 10, 551, 381));
@@ -157,7 +154,7 @@ public:
         label_8->setGeometry(QRect(660, 310, 58, 18));
         formLayoutWidget = new QWidget(centralwidget);
         formLayoutWidget->setObjectName(QString::fromUtf8("formLayoutWidget"));
-        formLayoutWidget->setGeometry(QRect(790, 310, 161, 91));
+        formLayoutWidget->setGeometry(QRect(790, 310, 161, 92));
         formLayout = new QFormLayout(formLayoutWidget);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -206,7 +203,7 @@ public:
 
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(780, 9, 160, 261));
+        gridLayoutWidget->setGeometry(QRect(780, 9, 160, 191));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -260,7 +257,26 @@ public:
 
         setVarBtn = new QPushButton(centralwidget);
         setVarBtn->setObjectName(QString::fromUtf8("setVarBtn"));
-        setVarBtn->setGeometry(QRect(690, 280, 158, 26));
+        setVarBtn->setGeometry(QRect(780, 215, 158, 51));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(600, 400, 171, 26));
+        horizontalLayoutWidget_2 = new QWidget(centralwidget);
+        horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(30, 390, 541, 41));
+        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(horizontalLayoutWidget_2);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        videoPath = new QLineEdit(horizontalLayoutWidget_2);
+        videoPath->setObjectName(QString::fromUtf8("videoPath"));
+
+        horizontalLayout_2->addWidget(videoPath);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -278,7 +294,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Video Path", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Min Radius", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Max Radius", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Gaussian Blur", nullptr));
@@ -287,17 +302,19 @@ public:
         bedaWarnaBtn->setText(QCoreApplication::translate("MainWindow", "Warna Beda", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Mode : ", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Jumlah Botol", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "Merah : ", nullptr));
-        redLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        redLabel->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "Biru : ", nullptr));
-        blueLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        blueLabel->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "Putih : ", nullptr));
-        whiteLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        whiteLabel->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_14->setText(QCoreApplication::translate("MainWindow", "Blue", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "Red", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "Merah", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "White", nullptr));
         setVarBtn->setText(QCoreApplication::translate("MainWindow", "Set Variable", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Simpan", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Indeks Camera / Direktori Video", nullptr));
     } // retranslateUi
 
 };

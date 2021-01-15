@@ -1,0 +1,4 @@
+Jumlah botol :6
+Botol merah :2
+Botol Biru:2
+Botol Putih : 3

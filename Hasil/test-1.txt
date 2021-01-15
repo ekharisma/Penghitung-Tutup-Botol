@@ -1,0 +1,4 @@
+Jumlah botol :1
+Botol merah :0
+Botol Biru:0
+Botol Putih : 0

@@ -3,6 +3,8 @@
 #include "objdetection.h"
 #include "unistd.h"
 
+#include <QFileDialog>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -18,8 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->maxRed->setText(QString::number(redMax));
     ui->minBlue->setText(QString::number(blueMin));
     ui->maxBlue->setText(QString::number(blueMax));
-//    ui->minGreen->setText(QString::number(greenMin));
-//    ui->maxGreen->setText(QString::number(greenMax));
     ui->minWhite->setText(QString::number(whiteMin));
     ui->maxWhite->setText(QString::number(whiteMax));
 }
@@ -86,6 +86,9 @@ void MainWindow::on_warna1Btn_clicked()
     //    ui->pushButton->setText("Stop");
     ui->warna1Btn->setText("Stop");
     cv::Mat frame, gray;
+    float stabilizer = 0;
+    float divider = 0;
+    float stabilized_value;
     while (video.isOpened()) {
         video >> frame;
         if (! frame.empty()){
@@ -101,11 +104,22 @@ void MainWindow::on_warna1Btn_clicked()
                 int radius = c[2];
                 cv::circle(frame, center,radius, cv::Scalar(0, 255, 0), 2, cv::LINE_AA);
             }
-            char buff[256];
-            std::sprintf(buff, "%d", i);
-            QString s = buff;
-            qDebug() << "Tutup botol : " << i;
-            ui->label_7->setText(s);
+            if (stabilizer <= 100) {
+                stabilizer += i;
+                divider ++;
+            }
+            else {
+                stabilized_value = stabilizer / divider;
+                stabilizer = divider = 0;
+            }
+            total_bottle = QString::number(ceil(stabilized_value));
+            red_label = "0";
+            blue_label = "0";
+            white_label = "0";
+            ui->label_7->setText(total_bottle);
+            ui->redLabel->setText(red_label);
+            ui->blueLabel->setText(blue_label);
+            ui->whiteLabel->setText(white_label);
             QImage img(
                         frame.data,
                         frame.cols,
@@ -114,7 +128,6 @@ void MainWindow::on_warna1Btn_clicked()
                         QImage::Format_BGR888);
             pixmap.setPixmap(QPixmap::fromImage(img));
             ui->graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
-            qDebug() << "Main";
         }
         qApp->processEvents();
     }
@@ -155,17 +168,20 @@ void MainWindow::on_bedaWarnaBtn_clicked()
     //    ui->pushButton->setText("Stop");
     ui->bedaWarnaBtn->setText("Stop");
     cv::Mat frame, hsv;
+    float stable_red = 0, stable_blue = 0, stable_white = 0;
+    float red_stabilizer, blue_stabilizer, white_stabilizer, red_divider, blue_divider, white_divider;
+    red_stabilizer = blue_stabilizer = white_stabilizer = red_divider = blue_divider = white_divider = 0;
     while (video.isOpened()) {
         video >> frame;
         if (! frame.empty()){
             cvtColor(frame, hsv, COLOR_BGR2HSV);
-            Mat lower_red_hue_range, upper_red_hue_range;
+            Mat lower_red_hue_range;
+            Mat upper_red_hue_range;
+            inRange(hsv, Scalar(redMin, 120, 70), Scalar(10, 255, 255), lower_red_hue_range);
+            inRange(hsv, Scalar(160, 120, 70), Scalar(redMax, 255, 255), upper_red_hue_range);
             Mat red_hue_image;
-            qDebug() << "Test";
-            inRange(hsv, Scalar(redMin, 100, 100), Scalar(10, 255, 255), lower_red_hue_range);
-            inRange(hsv, Scalar(160, 100, 100), Scalar(redMax, 255, 255), upper_red_hue_range);
             addWeighted(lower_red_hue_range, 1.0, upper_red_hue_range, 1.0, 0.0, red_hue_image);
-            GaussianBlur(red_hue_image, red_hue_image, Size(9, 9), 2, 2);
+            GaussianBlur(red_hue_image, red_hue_image, Size(blur_coef, blur_coef), 2, 2);
             std::vector<Vec3f> circles;
             HoughCircles(red_hue_image, circles, HOUGH_GRADIENT, 1,
                          red_hue_image.rows/16,  // change this value to detect circles with different distances to each other
@@ -183,10 +199,11 @@ void MainWindow::on_bedaWarnaBtn_clicked()
                 int radius = c[2];
                 circle( frame, center, radius, Scalar(0,255,0), 2, LINE_AA);
             }
+
+            qDebug() << i;
             Mat blue_hue_image;
-            inRange(hsv, Scalar(blueMin, 80, 2), Scalar(blueMax, 255, 255), blue_hue_image);
-            qDebug() << "Test";
-            GaussianBlur(blue_hue_image, blue_hue_image, Size(9, 9), 2, 2);
+            inRange(hsv, Scalar(105, 83, 0), Scalar(130, 255, 255), blue_hue_image);
+            GaussianBlur(blue_hue_image, blue_hue_image, Size(blur_coef, blur_coef), 2, 2);
             std::vector<Vec3f> circles1;
             HoughCircles(blue_hue_image, circles1, HOUGH_GRADIENT, 1,
                          blue_hue_image.rows/16,  // change this value to detect circles with different distances to each other
@@ -204,10 +221,11 @@ void MainWindow::on_bedaWarnaBtn_clicked()
                 int radius1 = cc[2];
                 circle( frame, center1, radius1, Scalar(0,255,0), 2, LINE_AA);
             }
+
             Mat white_hue_image;
-            inRange(hsv, Scalar(whiteMin, 0, 212), Scalar(whiteMax, 255, 255), white_hue_image);
-            qDebug() << "Test";
+            inRange(hsv, Scalar(whiteMin, 0, 205), Scalar(whiteMax, 35, 255), white_hue_image);
             GaussianBlur(white_hue_image, white_hue_image, Size(9, 9), 2, 2);
+            //medianBlur(red_hue_image, red_hue_image, 5);
             std::vector<Vec3f> circles2;
             HoughCircles(white_hue_image, circles2, HOUGH_GRADIENT, 1,
                          white_hue_image.rows/16,  // change this value to detect circles with different distances to each other
@@ -226,46 +244,42 @@ void MainWindow::on_bedaWarnaBtn_clicked()
                 circle( frame, center2, radius2, Scalar(0,255,0), 2, LINE_AA);
             }
 
-//            Mat green_hue_image;
-//            inRange(hsv, Scalar(greenMin, 0, 212), Scalar(greenMax, 255, 255), green_hue_image);
-//            qDebug() << "Test";
-//            GaussianBlur(green_hue_image, green_hue_image, Size(9, 9), 2, 2);
-//            std::vector<Vec3f> circles3;
-//            HoughCircles(green_hue_image, circles3, HOUGH_GRADIENT, 1,
-//                         green_hue_image.rows/16,  // change this value to detect circles with different distances to each other
-//                         threshold, 30, minRad, maxRad // change the last two parameters
-//                         // (min_radius & max_radius) to detect larger circles
-//                         );
-//            size_t m;
-//            for(m = 0; m < circles3.size(); m++ )
-//            {
-//                Vec3i e = circles3[m];
-//                Point center3 = Point(e[0], e[1]);
-//                // circle center
-//                circle( frame, center3, 1, Scalar(0,100,100), 2, LINE_AA);
-//                // circle outline
-//                int radius3 = e[2];
-//                circle( frame, center3, radius3, Scalar(0,255,0), 2, LINE_AA);
-//            }
-            char red[256];
-            char blue[256];
-            char white[256];
-//            char green[256];
-            char total_lab[256];
-            int total = i + j + k;
-            std::sprintf(total_lab, "%d", total);
-            std::sprintf(red, "%d", i);
-            std::sprintf(blue, "%d", j);
-            std::sprintf(white, "%d", k);
-//            std::sprintf(green, "%d", m);
-            QString red_label = red;
-            QString blue_label = blue;
-//            QString green_label = green;
-            QString white_label = white;
-            ui->label_7->setText(total_lab);
+            if (red_stabilizer <= 10) {
+                red_stabilizer += i;
+                red_divider ++;
+            }
+            else {
+                stable_red = red_stabilizer / red_divider;
+                red_stabilizer = red_divider = 0;
+            }
+
+            if (blue_stabilizer <= 10) {
+                blue_stabilizer += j;
+                blue_divider ++;
+            }
+            else {
+                stable_blue = blue_stabilizer / blue_divider;
+                blue_stabilizer = blue_divider = 0;
+            }
+
+            if (white_stabilizer <= 10) {
+                white_stabilizer += k;
+                white_divider ++;
+            }
+            else {
+                stable_white = white_stabilizer / white_divider;
+                white_stabilizer = white_divider = 0;
+            }
+
+
+            int total = ceil(stable_red + stable_blue + stable_white);
+            total_bottle = QString::number(ceil(total));
+            red_label = QString::number(ceil(stable_red));
+            blue_label = QString::number(ceil(stable_blue));
+            white_label = QString::number(ceil(stable_white));
+            ui->label_7->setText(total_bottle);
             ui->redLabel->setText(red_label);
             ui->blueLabel->setText(blue_label);
-//            ui->greenLabel->setText(green_label);
             ui->whiteLabel->setText(white_label);
             QImage img(
                         frame.data,
@@ -275,10 +289,39 @@ void MainWindow::on_bedaWarnaBtn_clicked()
                         QImage::Format_BGR888);
             pixmap.setPixmap(QPixmap::fromImage(img));
             ui->graphicsView->fitInView(&pixmap, Qt::KeepAspectRatio);
-            qDebug() << "Main";
         }
         qApp->processEvents();
     }
     //    ui->pushButton->setText("Start");
     ui->bedaWarnaBtn->setText("Beda Warna");
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString outDir = QFileDialog::getSaveFileName(
+                this,
+                tr("Simpan dimana ?"),
+                tr("Pembacaan :")
+                );
+    if (outDir.isEmpty()) return;
+    else {
+        QFile file(outDir);
+        if (!file.open(QIODevice::WriteOnly)){
+            QMessageBox::critical(this, tr("Tidak bisa dibuka"), file.errorString());
+            return;
+        }
+        QTextStream outFile(&file);
+        outFile << "Jumlah botol :";
+        outFile << total_bottle;
+        outFile << "\n";
+        outFile << "Botol merah :";
+        outFile << red_label;
+        outFile << "\n";
+        outFile << "Botol Biru:";
+        outFile << blue_label;
+        outFile << "\n";
+        outFile << "Botol Putih : ";
+        outFile << white_label;
+        outFile << "\n";
+    }
 }

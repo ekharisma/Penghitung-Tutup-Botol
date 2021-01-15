@@ -38,6 +38,8 @@ private slots:
 
     void on_bedaWarnaBtn_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsPixmapItem pixmap;
@@ -48,13 +50,15 @@ private:
     int maxRad = 30;
     int blur_coef = 5;
     int redMin = 0;
-    int redMax = 179;
-    int greenMin = 0;
-    int greenMax = 131;
-    int blueMin = 94;
-    int blueMax = 126;
+    int redMax = 180;
+    int blueMin = 180;
+    int blueMax = 240;
     int whiteMin = 0;
-    int whiteMax = 131;
+    int whiteMax = 255;
+    QString red_label;
+    QString blue_label;
+    QString white_label;
+    QString total_bottle;
     cv::Mat frame, gray;
 };
 #endif // MAINWINDOW_H
